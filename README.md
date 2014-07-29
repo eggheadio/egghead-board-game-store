@@ -1,8 +1,9 @@
-npm install
-gulp
 
+    npm install
+    gulp
 
+http://localhost:3000/game/:id is an express server w/ board game data from a SQLite db.
 
+http://localhost:8080 is an http server for the ./client/dist
 
-Runs a "Board Game" server with a SQLite database and board game images.
-The angular "app" is a minimal example of requesting the data.
+Yay lots of images! :) (maybe we should .zip them since it makes the repo huge?)
