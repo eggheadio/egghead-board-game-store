@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="bgs" ng-controller="AppCtrl as app">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="bundle.js"></script>
+</head>
+<body>
+
+<table>
+  <thead>
+  <tr>
+    <th>game</th>
+    <th>thumbnail</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr ng-repeat="game in app.games">
+    <td>{{game.name}}</td>
+    <td><img ng-src="http://localhost:3000/{{game.thumbnail}}" alt=""/></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

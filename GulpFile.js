@@ -41,7 +41,12 @@ gulp.task('server', function () {
     server();
 })
 
+gulp.task('copyHtml', function(){
+    gulp.src('./client/src/**/*.html')
+        .pipe(gulp.dest('./client/dist'));
+});
 
-gulp.task('default', ['connect', 'server'], function () {
+
+gulp.task('default', ['copyHtml','browserify','connect', 'server'], function () {
     open("http://localhost:8080")
 })
