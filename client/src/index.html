@@ -3,22 +3,22 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title></title>
+  <script src="css/styles.js"></script>
   <script src="bundle.js"></script>
 </head>
 <body>
 
-<table>
+<table class="table table-bordered">
   <thead>
   <tr>
-    <th>game</th>
-    <th>thumbnail</th>
+    <th><h2>thumbnail</h2></th>
+    <th><h2>game</h2></th>
   </tr>
   </thead>
-
   <tbody>
   <tr ng-repeat="game in app.games">
-    <td>{{game.name}}</td>
     <td><img ng-src="http://localhost:3000/{{game.thumbnail}}" alt=""/></td>
+    <td>{{game.name}}</td>
   </tr>
   </tbody>
 </table>
