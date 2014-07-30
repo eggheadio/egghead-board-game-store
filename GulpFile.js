@@ -5,7 +5,6 @@ var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 var connect = require('gulp-connect');
 
-var server = require('./server/server');
 var open = require('open');
 
 gulp.task('browserify', function() {
@@ -38,7 +37,7 @@ gulp.task('watch', [], function() {
 });
 
 gulp.task('server', function () {
-    server();
+    require('./server/server');
 })
 
 gulp.task('copyHtml', function(){

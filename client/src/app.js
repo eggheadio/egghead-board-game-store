@@ -13,7 +13,7 @@
 
         boardGameService.getGames()
             .then(function (result) {
-                app.games = result.data;
+                app.games = result.data.rows;
             })
     }
 
