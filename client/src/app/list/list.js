@@ -1,8 +1,8 @@
 module.exports = function (bgs) {
     bgs.config(function ($stateProvider) {
         $stateProvider.state("app.list", {
-            templateUrl: "./list/list.html",
-            controller: "ListCtrl as list",
+            templateUrl: "./app/list/list.html",
+            controller: "ListCtrl as list"
         })
     })
 

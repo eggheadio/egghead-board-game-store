@@ -2,7 +2,7 @@ module.exports = function (bgs) {
     bgs.config(function ($stateProvider) {
         $stateProvider.state("app", {
             templateUrl: "./app/app.html",
-            controller: "AppCtrl as app",
+            controller: "AppCtrl as app"
         })
     });
 
@@ -22,6 +22,7 @@ module.exports = function (bgs) {
                 });
         }
     }
+
 
     bgs.controller("AppCtrl", AppCtrl);
 };

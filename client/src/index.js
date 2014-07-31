@@ -6,8 +6,9 @@
 
     var bgs = angular.module("bgs", ["ui.router", "ui.bootstrap"]);
     require("./service")(bgs);
-    require("./list/list")(bgs);
+    require("./app/list/list")(bgs);
     require("./app/app")(bgs);
+
 
     bgs.run(function ($state) {
         $state.go("app");
