@@ -5,14 +5,20 @@ var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
 
+var jwt = require("jsonwebtoken");
+var expressJwt = require("express-jwt");
+var secret = "Speak friend and enter";
+
+
 process.chdir(__dirname);
 
 var app = express();
 
 app.use('/images', express.static(__dirname + '/images'));
-
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use('/api', expressJwt({secret: secret}));
 
 
 var sequelize = new Sequelize('database', 'username', '', {
@@ -49,7 +55,29 @@ var Game = sequelize.define('games',
 )
 
 function connected() {
-    app.route("/game")
+    app.route('/login')
+        .post(function (req, res) {
+            console.log(req.body.username);
+            console.log(req.body.password);
+            if (!(req.body.username === 'john.doe' && req.body.password === 'foobar')) {
+                res.send(401, 'Wrong user or password');
+                return;
+            }
+
+            var profile = {
+                first_name: 'John',
+                last_name: 'Doe',
+                email: 'john@doe.com',
+                id: 123
+            };
+
+            var token = jwt.sign(profile, secret, { expiresInMinutes: 60 * 5 });
+
+            res.json({ token: token });
+        });
+
+
+    app.route("/api/game")
         .get(function (req, res) {
             var findOptions = {
                 offset: 0,
@@ -60,11 +88,11 @@ function connected() {
                 findOptions.where = {name: {like: '%' + req.query.search + '%'}};
             }
 
-            if(req.query.page){
+            if (req.query.page) {
                 findOptions.offset = req.query.page * findOptions.limit;
             }
 
-            if(req.query.typeahead) {
+            if (req.query.typeahead) {
                 findOptions = {};
                 findOptions.where = {name: {like: '%' + req.query.typeahead + '%'}};
                 findOptions.attributes = ['name', 'id'];
@@ -81,7 +109,7 @@ function connected() {
         })
 
 
-    app.route("/game/:id")
+    app.route("/api/game/:id")
         .get(function (req, res) {
             var id = req.params.id;
             console.log(id);
