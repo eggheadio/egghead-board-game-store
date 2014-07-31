@@ -1,4 +1,8 @@
-module.exports = function(){
+module.exports = function (bgs) {
+    bgs.config(function () {
+        console.log("service");
+    })
+
     var BASE_URL = "http://localhost:3000";
     var API_URL = "http://localhost:3000/api";
 
@@ -25,9 +29,7 @@ module.exports = function(){
         }
     }
 
-    return {
-        BASE_URL: BASE_URL,
-        API_URL: API_URL,
-        boardGameService: boardGameService
-    };
-}();
+    bgs.constant("BASE_URL", BASE_URL);
+    bgs.constant("API_URL", API_URL);
+    bgs.service("boardGameService", boardGameService);
+};

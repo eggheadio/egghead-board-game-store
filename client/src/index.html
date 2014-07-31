@@ -7,38 +7,8 @@
   <script src="bundle.js"></script>
 </head>
 <body class="container">
-<span class="dropdown pull-right" is-open="app.loggingIn">
-      <a href class="dropdown-toggle">
-        Sign in
-      </a>
-      <div class="dropdown-menu">
-        <input type="text" ng-model="app.user.username"/>
-        <input type="text" ng-model="app.user.password"/>
-        <button class="btn-primary" ng-click="app.login(app.user.username, app.user.password)">Login</button>
-      </div>
-    </span>
-<input type="text" ng-model="app.game.selected" placeholder="Enter a game name..."
-       typeahead="game.name for game in app.boardGameService.getGameNames($viewValue)"
-       typeahead-loading="loadingLocations"
-       class="form-control">
-<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-<pagination total-items="app.game.count" ng-model="app.game.page" items-per-page="app.game.perPage"
-            class="pagination-sm"
-            boundary-links="true"></pagination>
-<table class="table table-bordered">
-  <thead>
-  <tr>
-    <th><h2>thumbnail</h2></th>
-    <th><h2>game</h2></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="game in app.games">
-    <td><img ng-src="http://localhost:3000/{{game.thumbnail}}" alt=""/></td>
-    <td>{{game.name}}</td>
-  </tr>
-  </tbody>
-</table>
+
+<div ui-view></div>
 
 </body>
 </html>

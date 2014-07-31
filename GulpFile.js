@@ -19,7 +19,7 @@ gulp.task('cssify', function () {
 });
 
 gulp.task('browserify', function () {
-    gulp.src(['./client/src/app.js'])
+    gulp.src(['./client/src/index.js'])
         .pipe(browserify({
             insertGlobals: true,
             debug: true
