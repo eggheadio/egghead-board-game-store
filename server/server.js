@@ -60,8 +60,18 @@ function connected() {
                 findOptions.where = {name: {like: '%' + req.query.search + '%'}};
             }
 
-            Game.findAndCountAll(findOptions).success(function (users) {
-                res.send(users);
+            if(req.query.page){
+                findOptions.offset = req.query.page * findOptions.limit;
+            }
+
+            if(req.query.typeahead) {
+                findOptions = {};
+                findOptions.where = {name: {like: '%' + req.query.typeahead + '%'}};
+                findOptions.attributes = ['name', 'id'];
+            }
+
+            Game.findAndCountAll(findOptions).success(function (games) {
+                res.send(games);
             })
         })
         .post(function (req, res) {
