@@ -1,5 +1,7 @@
+{code}
 npm install
 gulp
+{code}
 
 
 

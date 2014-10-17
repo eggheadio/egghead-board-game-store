@@ -1,0 +1,11 @@
+<div>
+  <h1>{{::hello.title}}</h1>
+  <input type="text" ng-model="hello.name" ng-model-options="{debounce:300}"/>
+  Live update: {{hello.name}}
+
+  <div></div>
+  <button ng-click="hello.submit(hello.name)">Submit Name</button>
+
+  <div></div>
+  Server response: <h1>{{hello.message}}</h1>
+</div>
