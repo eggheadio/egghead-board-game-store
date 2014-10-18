@@ -19,6 +19,12 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('./client/dist'))
 })
 
+
+gulp.task('copyFonts', function () {
+  gulp.src(['./node_modules/bootstrap/dist/fonts/**'])
+    .pipe(gulp.dest('./client/dist/fonts'))
+})
+
 gulp.task('webserver', function () {
   gulp.src('./client/dist')
     .pipe(webserver({
@@ -27,7 +33,7 @@ gulp.task('webserver', function () {
 });
 
 
-gulp.task('build', ['browserify', 'copy']);
+gulp.task('build', ['browserify', 'copy', 'copyFonts']);
 
 gulp.task('watch', ['build'], function () {
   gulp.watch(['./client/src/**'], [

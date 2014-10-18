@@ -1,4 +1,4 @@
-angular.module('boardGameStore', ['ui.router', 'boardGameServices', 'hello', 'store', 'detail', 'registration'])
+angular.module('boardGameStore', ['ui.router', 'components', 'boardGameServices', 'hello', 'store', 'detail'])
 
   .run(function ($state) {
     $state.go('store');
