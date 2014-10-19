@@ -1,6 +1,6 @@
 <div>
   <h1>{{::detail.game.name}}</h1>
-  <img width="300px" ng-src="http://localhost:3000/{{::detail.game.image}}" alt=""/>
+  <img width="300px" ng-src="{{::detail.BASE_URL}}/{{::detail.game.image}}" alt=""/>
   <h3>Average rating: {{::detail.game.averageRating}}</h3>
   <h3>Playing time: {{::detail.game.playingTime}}</h3>
   <h3>Min players: {{::detail.game.minPlayers}}</h3>

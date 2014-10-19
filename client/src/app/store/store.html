@@ -14,7 +14,7 @@
         ui-sref="detail({id:game.gameId})">
       <td>{{::game.name}}</td>
       <td>{{::game.averageRating}}</td>
-      <td><img ng-src="http://localhost:3000/{{::game.thumbnail}}" alt=""/></td>
+      <td><img ng-src="{{::store.BASE_URL}}/{{::game.thumbnail}}" alt=""/></td>
     </tr>
     </tbody>
   </table>

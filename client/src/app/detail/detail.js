@@ -18,8 +18,9 @@ angular.module("detail", [])
   })
 
 
-  .controller("DetailCtrl", function (game) {
+  .controller("DetailCtrl", function (game, BASE_URL) {
     var detail = this;
 
     detail.game = game;
+    detail.BASE_URL = BASE_URL;
   })

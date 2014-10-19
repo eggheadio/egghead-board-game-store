@@ -19,9 +19,10 @@ angular.module("store", [])
 
   })
 
-  .controller("StoreCtrl", function (games) {
+  .controller("StoreCtrl", function (games, BASE_URL) {
     var store = this;
     store.selected = "name";
+    store.BASE_URL = BASE_URL;
 
     store.select = function (selected) {
       //flip direction if already selected
@@ -34,8 +35,6 @@ angular.module("store", [])
     }
 
     store.games = games;
-
-    console.log("something here");
   })
 
 
