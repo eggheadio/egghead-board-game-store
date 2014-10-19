@@ -5,7 +5,7 @@ var webserver = require('gulp-webserver');
 var server = require('./server/server');
 
 gulp.task('browserify', function () {
-  gulp.src(['./client/deps.js'])
+  gulp.src(['./client/src/vendor/deps.js'])
     .pipe(browserify({
       insertGlobals: true,
       debug: true
@@ -15,15 +15,15 @@ gulp.task('browserify', function () {
 });
 
 gulp.task('copy', function () {
-  gulp.src(['./client/src/**'])
+  gulp.src(['./client/src/app/**/*.*', './client/src/common/**/*.*'])
     .pipe(gulp.dest('./client/dist'))
-})
+});
 
 
 gulp.task('copyFonts', function () {
   gulp.src(['./node_modules/bootstrap/dist/fonts/**'])
     .pipe(gulp.dest('./client/dist/fonts'))
-})
+});
 
 gulp.task('webserver', function () {
   gulp.src('./client/dist')
@@ -43,7 +43,7 @@ gulp.task('watch', ['build'], function () {
 
 gulp.task('server', function () {
   server();
-})
+});
 
 
-gulp.task('default', ['webserver', 'server']);
+gulp.task('default', ['build', 'webserver', 'server']);
