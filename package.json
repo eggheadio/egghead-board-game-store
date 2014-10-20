@@ -2,37 +2,12 @@
   "name": "BoardGameStore",
   "version": "1.0.0",
   "description": "",
-  "main": "GulpFile.js",
-  "browserify": {
-    "transform": [
-      "cssify"
-    ]
-  },
+  "main": "server/server.js",
   "dependencies": {
-    "angular": "^1.3.0",
-    "angular-ui-router": "^0.2.11",
     "body-parser": "^1.9.0",
-    "bootstrap": "^3.2.0",
-    "browserify": "^6.0.2",
     "cors": "^2.4.2",
-    "cssify": "^0.6.0",
-    "del": "^0.1.3",
     "express": "^4.9.5",
-    "gulp": "^3.8.8",
-    "gulp-browserify": "*",
-    "gulp-concat": "^2.4.1",
-    "gulp-connect": "*",
-    "gulp-embedlr": "*",
-    "gulp-jshint": "^1.8.5",
-    "gulp-livereload": "^2.1.1",
-    "gulp-rimraf": "^0.1.1",
-    "gulp-webserver": "^0.8.3",
-    "http-server": "^0.7.1",
-    "ng-annotate": "^0.10.2",
-    "rimraf": "^2.2.8",
-    "sequelize-sqlite": "^2.0.0-beta.2",
-    "tiny-lr": "^0.1.4",
-    "uglifyjs": "^2.3.6"
+    "sequelize-sqlite": "^2.0.0-beta.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
