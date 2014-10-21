@@ -1,3 +1,8 @@
+#!/bin/env node
+
+var ipaddr  = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port    = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+
 var Sequelize = require('sequelize-sqlite').sequelize;
 var sqlite = require('sequelize-sqlite').sqlite;
 
@@ -95,8 +100,8 @@ function connected() {
     });
 
 
-  app.listen(3000, function () {
-    console.log("listening on port 3000");
+  app.listen(port, ipaddr, function () {
+    console.log("listening on port ", port);
   })
 }
 
